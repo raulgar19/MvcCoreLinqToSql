@@ -1,0 +1,27 @@
+﻿@model List<Empleado>
+
+<h1>Empleados Linq To SQL</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Apellido</th>
+            <th>Oficio</th>
+            <th>Salario</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Empleado empleado in Model)
+        {
+            <tr>
+                <td>@empleado.Apellido</td>
+                <td>@empleado.Oficio</td>
+                <td>@empleado.Salario</td>
+                <td>
+                    <a class="btn btn-info" asp-controller="Empleados" asp-action="Details" asp-route-id="@empleado.IdEmpleado">Details</a>    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
