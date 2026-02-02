@@ -1,0 +1,30 @@
+﻿@model List<Enfermo>
+
+<h1>Enfermos</h1>
+
+@if (Model != null) {
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Apellido</th>
+                <th>Dirección</th>
+                <th>Fecha Nacimiento</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Enfermo enfermo in Model)
+            {
+                <tr>
+                    <td>@enfermo.Apellido</td>
+                    <td>@enfermo.Direccion</td>
+                    <td>@enfermo.FechaNac</td>
+                    <td>
+                        <a asp-controller="Enfermos" asp-action="Details" asp-route-inscripcion="@enfermo.Inscripcion" class="btn btn-info">Detalles</a>
+                        <a asp-controller="Enfermos" asp-action="Delete" asp-route-inscripcion="@enfermo.Inscripcion"  class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
